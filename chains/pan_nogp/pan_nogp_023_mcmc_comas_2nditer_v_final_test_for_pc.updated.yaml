@@ -1,0 +1,86 @@
+theory: null
+likelihood:
+  pan_nogp_2:
+    speed: 4500
+    type: []
+    stop_at_error: false
+    version: null
+    input_params:
+    - H0_gp
+    - omegam_gp
+    - M_gp
+    output_params: []
+  pan_gp_M:
+    speed: 4500
+    type: []
+    stop_at_error: false
+    version: null
+    input_params:
+    - M_gp
+    output_params: []
+params:
+  H0_gp:
+    prior:
+      min: 65.0
+      max: 85.0
+    ref:
+      dist: norm
+      loc: 73.2
+      scale: 1.2
+    latex: H_{0_{gp}}
+  omegam_gp:
+    prior:
+      min: 0.0
+      max: 1.0
+    ref:
+      dist: norm
+      loc: 0.3
+      scale: 0.028
+    latex: \Omega_{m_{gp}}
+  M_gp:
+    prior:
+      min: -19.6
+      max: -18.9
+    ref:
+      dist: norm
+      loc: -19.253
+      scale: 0.032
+    latex: M
+sampler:
+  mcmc:
+    burn_in: 0
+    max_tries: 40d
+    covmat: null
+    covmat_params: null
+    proposal_scale: 2.4
+    output_every: 60s
+    learn_every: 40d
+    learn_proposal: true
+    learn_proposal_Rminus1_max: 2.0
+    learn_proposal_Rminus1_max_early: 30.0
+    learn_proposal_Rminus1_min: 0.0
+    max_samples: .inf
+    Rminus1_stop: 0.001
+    Rminus1_cl_stop: 0.2
+    Rminus1_cl_level: 0.95
+    Rminus1_single_split: 4
+    measure_speeds: true
+    oversample_power: 0.4
+    oversample_thin: true
+    drag: false
+    blocking:
+    - - 1
+      - - M_gp
+    - - 1
+      - - H0_gp
+        - omegam_gp
+    callback_function: null
+    callback_every: null
+    seed: null
+    check_every: null
+    oversample: null
+    drag_limits: null
+    fallback_covmat_scale: 4
+    version: 3.2.1
+output: pan_nogp_023_mcmc_comas_2nditer_v_final_test_for_pc
+version: 3.2.1

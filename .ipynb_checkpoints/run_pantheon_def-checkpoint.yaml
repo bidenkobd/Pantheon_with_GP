@@ -1,0 +1,41 @@
+likelihood:
+  sn.pantheon: null
+#  sh0es: null
+#  panp_gp_calib_det: null
+theory:
+  classy:
+    requires: ["H0","Omega_cdm","Omega_b"]
+
+
+params:
+  H0:
+    prior:
+      min: 65.0
+      max: 85.0
+    ref:
+      dist: norm
+      loc: 73.4
+      scale: 1.1
+  M_gp:
+    prior:
+      min: -19.6
+      max: -18.9
+    ref:
+      dist: norm
+      loc: -19.2381
+      scale: 0.027
+    latex: M
+  Omega_m:
+    prior:
+      dist: uniform
+      min: 0.
+      max: 0.95
+    ref:
+      dist: norm
+      loc: 0.278
+      scale: 0.02
+      
+sampler:
+  mcmc:
+    Rminus1_stop: 0.001
+output: ./output/panp_cbdef/v6_camb_def
