@@ -1,0 +1,75 @@
+likelihood:
+  pan_gp: null
+  pan_sh0es_M_calib: null
+  pan_gp_det: null
+params:
+  H0_gp:
+    prior:
+      min: 65.0
+      max: 85.0
+    ref:
+      dist: norm
+      loc: 73.1
+      scale: 1.2
+    latex: H_{0_{gp}}
+  omegam_gp:
+    prior:
+      min: 0.0
+      max: 1.0
+    ref:
+      dist: norm
+      loc: 0.353
+      scale: 0.023
+    latex: \Omega_{m_{gp}}
+  M_gp:
+    prior:
+      min: -19.6
+      max: -18.9
+    ref:
+      dist: norm
+      loc: -19.253
+      scale: 0.032
+    latex: M
+  d_gp:
+    prior:
+      min: 0.0001
+      max: 1.
+    ref:
+      dist: norm
+      loc: 0.18
+      scale: 0.5
+    latex: d
+  nu_gp:
+    prior:
+      min: 0.5
+      max: 4.5
+    ref:
+      dist: uniform
+      loc: 2.5
+      scale: 1.
+    latex: \nu
+  sigma_gp:
+    prior:
+      min: 1.0e-3
+      max: 0.08
+    ref:
+      dist: norm
+      loc: 0.02
+      scale: 0.02
+    latex: \sigma
+sampler:
+########### nested sampling algorithm, used for evidence calculations
+  # polychord:
+  #   nlive: 20d
+  #   precision_criterion: 0.00001
+
+########### mcmc sampler, used for parameter constraints
+  mcmc:
+    Rminus1_stop: 0.0005
+    output_every: 120s
+    learn_every: 4d
+    learn_proposal: true
+    learn_proposal_Rminus1_max: 50.0
+    learn_proposal_Rminus1_max_early: 60.0
+    learn_proposal_Rminus1_min: 0.01
+output: ./output/pan_gp/pan_gp

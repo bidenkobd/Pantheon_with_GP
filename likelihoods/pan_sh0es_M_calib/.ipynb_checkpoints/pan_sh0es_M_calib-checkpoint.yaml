@@ -1,0 +1,7 @@
+speed: 4500
+params:
+  M_gp:
+    prior:
+      dist: uniform
+      min: -20.
+      max: -18.
